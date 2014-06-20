@@ -3,8 +3,7 @@
 /*jshint "laxbreak":true,"shadow":true,"undef":true,"evil":true,"trailing":true,"proto":true,"withstmt":true*/
 // You may change these variables as long as you keep the same type
 var Config = {
-    base_url: "https://raw.github.com/PhoenixPhlame/po-server-goodies/master/",
-    dataDir: "scriptdata/",
+    base_url: "https://raw.githubusercontent.com/PhoenixPhlame/po-server-goodies/master/",
     bot: "Dratini",
     kickbot: "Blaziken",
     capsbot: "Exploud",
