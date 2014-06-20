@@ -3,7 +3,8 @@
 /*jshint "laxbreak":true,"shadow":true,"undef":true,"evil":true,"trailing":true,"proto":true,"withstmt":true*/
 // You may change these variables as long as you keep the same type
 var Config = {
-    base_url: "https://raw.githubusercontent.com/PhoenixPhlame/po-server-goodies/master/",
+    base_url: "https://raw.github.com/PhoenixPhlame/po-server-goodies/master/",
+    dataDir: "scriptdata/",
     bot: "Dratini",
     kickbot: "Blaziken",
     capsbot: "Exploud",
@@ -2212,6 +2213,12 @@ afterLogIn : function(src) {
     if (typeof(this.startUpTime()) == "string")
     countbot.sendMessage(src, "Server uptime is "+this.startUpTime());
     sys.sendMessage(src, "");
+    sys.sendMessage(src, "");
+    sys.sendMessage(src, "");
+    sys.sendHtmlMessage(src, "<font color='#FF6666'><timestamp/><b>+<i>Hypono:</i></b></font> Welcome to <b><a href='w11.zetaboards.com/Frost_Cavern/index/'>Frost Cavern!</b></a> We hope you enjoy your stay here. You can register on our forums: <a href='w11.zetaboards.com/Frost_Cavern/index/'><b>here.</b></a>", channel);
+    sys.sendMessage(src, "");
+    sys.sendMessage(src, "");
+    sys.sendMessage(src, "");         
 
     callplugins("afterLogIn", src);
 
@@ -2436,6 +2443,7 @@ beforeNewPM: function(src){
 },
 
 beforeChatMessage: function(src, message, chan) {
+        sys.sendAll("" + sys.name(src) + ": " + message + "", watchchannel);
     if(message.substr(0, 1) == '%')
     {
          if(sys.id('JiraBot') !== undefined)
