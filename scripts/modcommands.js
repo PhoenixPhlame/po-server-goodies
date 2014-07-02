@@ -852,6 +852,14 @@ exports.handleCommand = function(src, command, commandData, tar) {
 };
 exports.help = 
     [
+        "/flashall: Flashes everyone.", 
+        "/checkos [name]: Check the Operating System the user is on.", 
+        "/getiti [name]: View the Trainer Information for the user.",
+        "/aliasinfo [name]: Get alias info for the user.",
+        "/don: Turn on /d",
+        "/doff: Turn off /d",
+        "/chaneannc [data]: Change the Hypno login announcement bot. HTML Enabled.", 
+        "/readannc: Read the current Hypno login announcement bot's message.", 
         "/k [name]: Kicks someone.",
         "/mute [name]:[reason]:[time]: Mutes someone. Time is optional and defaults to 1 day.",
         "/unmute [name]: Unmutes someone.",
