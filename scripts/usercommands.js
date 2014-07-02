@@ -995,6 +995,7 @@ exports.handleCommand = function(src, command, commandData, tar) {
 
 exports.help =
     [
+        "/d: Leave the server in style!",
         "/rules [x]: Shows the rules (x is optionally parameter to show a specific rule)",
         "/ranking: Shows your ranking in your current tier.",
         "/myalts: Lists your alts.",
