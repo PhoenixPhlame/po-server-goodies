@@ -1,4 +1,93 @@
+// FlashAll, CheckOS, GetTi, aliasinfo, /D, chaneannc, readannc -- Capitalize First Letter Of String Function
 exports.handleCommand = function(src, command, commandData, tar) {
+    function capitalizeit(stringz){
+    return stringz.substring(0,1).toUpperCase() + stringz.substring(1,stringz.length);
+}
+    function usercheck(){
+        return normalbot.sendChanMessage(src, "Please provide a user to check.");
+    }
+    /*
+    if (command == "camps"){
+        sys.sendHtmlMessage(src, capitalizeit(sys.read("abc.txt")));
+        return;
+    }
+    */
+    if (command == "changeannc"){
+        sys.write("annc.txt", commandData);
+        normalbot.sendChanMessage(src, "You have changed the announcement to: "+commandData+"");
+        return;
+    }
+    if (command == "readannc"){
+        normalbot.sendChanMessage(src, "The announcement message is set to: "+sys.read("annc.txt")+"");
+        return;
+    }
+    if (command == "flashall"){
+        sys.sendHtmlAll("<timestamp/><ping/><b>"+sys.name(src)+" has flashed everyone.</b>");
+        return;
+    }
+    if (command == "checkos"){
+        if (commandData == undefined){
+            normalbot.sendChanMessage(src, "Please provide a user to check.");
+            return;
+        }
+        var osreturn = sys.os(tar);
+        var osreturn2 = sys.os(tar).substring(0,1).toUpperCase() + osreturn.substring(1,osreturn.length);
+        normalbot.sendChanMessage(src, ""+sys.name(tar)+" is running on the "+osreturn2+" operating system.");
+        return;
+    }
+    if (command == "don"){
+        if (sys.read("d.txt") == "true"){
+            normalbot.sendChanMessage(src, "/d is already on.");
+            return;
+        }
+        sys.write("d.txt", "true");
+        sys.sendHtmlAll("<timestamp/><b>/d has been turned on by "+sys.name(src)+"!", channel);
+        return;
+    }
+    if (command == "doff"){
+        if (sys.read("d.txt") == "false"){
+            normalbot.sendChanMessage(src, "/d is already off.");
+            return;
+        }
+        sys.write("d.txt", "false");
+        sys.sendHtmlAll("<timestamp/><b>/d has been turned off by "+sys.name(src)+"!", channel);
+        return;
+    }
+    if (command == "getti"){
+        if (commandData == undefined){
+            normalbot.sendChanMessage(src, "Please provide a user to check.");
+            return;
+        }
+        sys.sendMessage(src, "------- The Trainer Information For "+sys.name(tar)+"", channel);
+        sys.sendMessage(src, "", channel);
+        sys.sendMessage(src, "------ "+sys.info(tar)+"", channel);
+        sys.sendMessage(src, "------", channel);
+        sys.sendMessage(src, "", channel);
+        return;
+    }
+    if (command == "aliasinfo"){
+        if (commandData == undefined){
+            usercheck;
+            return;
+        }
+        var connections = sys.ip(tar);
+        sys.sendHtmlMessage(src, "<font color=#5d33eb><timestamp/><b>Kali:</font> <b>Displaying Alias Information for "+sys.name(tar)+"</b></b>", channel);
+        sys.sendHtmlMessage(src, "<font color=#5d33eb><timestamp/><b>Kali:</b></font> Number Of Players Logged In With The IP Matching "+sys.name(tar)+"("+connections+"): "+sys.connections(connections)+"", channel);
+        sys.sendHtmlMessage(src, "<font color=#5d33eb><timestamp/><b>Kali:</b></font> Number of Registered Aliases related with "+sys.name(tar)+":  "+sys.numRegistered(connections)+"", channel);
+        sys.sendHtmlMessage(src, "<font color=#5d33eb><timestamp/><b>Kali:</b></font> Number of Aliases related with "+sys.name(tar)+": "+sys.aliases(sys.ip(sys.id("tar"))).length+"", channel);
+        return;
+    }
+    if (command == "attackon"){
+        sys.write("attack.txt", "true");
+        sys.sendHtmlAll("<timestamp/><b> "+sys.name(src)+" has turned Attack Mode On! Use /attack on a player to attack them.</b>", channel);
+        return;
+    }
+    if (command == "attackoff"){
+        sys.write("attack.txt", "false");
+        sys.sendHtmlAll("<timestamp/><b> "+sys.name(src)+" has turned Attack Mode Off.</b>", channel);
+        return;
+    }
+        
     if (command == "channelusers") {
        if (commandData === undefined) {
            normalbot.sendChanMessage(src, "Please give me a channelname!");
