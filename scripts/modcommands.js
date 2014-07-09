@@ -41,7 +41,7 @@ exports.handleCommand = function(src, command, commandData, tar) {
             return;
         }
         sys.write("d.txt", "true");
-        sys.sendHtmlAll("<timestamp/><b>/d has been turned on by "+sys.name(src)+"!", channel);
+        sys.sendHtmlAll("<timestamp/><b><font color=green>/d has been turned on by "+sys.name(src)+"!</b></font>", channel);
         return;
     }
     if (command == "doff"){
@@ -50,7 +50,7 @@ exports.handleCommand = function(src, command, commandData, tar) {
             return;
         }
         sys.write("d.txt", "false");
-        sys.sendHtmlAll("<timestamp/><b>/d has been turned off by "+sys.name(src)+"!", channel);
+        sys.sendHtmlAll("<timestamp/><b><font color=green>/d has been turned off by "+sys.name(src)+"!</b></font>", channel);
         return;
     }
     if (command == "smute") {
@@ -866,7 +866,7 @@ exports.help =
         "/aliasinfo [name]: Get alias info for the user.",
         "/don: Turn on /d",
         "/doff: Turn off /d",
-        "/chaneannc [data]: Change the Hypno login announcement bot. HTML Enabled.", 
+        "/changeannc [data]: Change the Hypno login announcement bot. HTML Enabled.", 
         "/readannc: Read the current Hypno login announcement bot's message.", 
         "/k [name]: Kicks someone.",
         "/mute [name]:[reason]:[time]: Mutes someone. Time is optional and defaults to 1 day.",
