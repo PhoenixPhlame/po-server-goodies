@@ -1339,6 +1339,7 @@ afterLogIn : function(src) {
     }
     sys.sendMessage(src, "*** Type in /Rules to see the rules. ***");
     commandbot.sendMessage(src, "Use !commands to see the commands!");
+    sys.sendMessage(src, "Enjoy Your Stay!");
 
     if (sys.numPlayers() > maxPlayersOnline) {
         maxPlayersOnline = sys.numPlayers();
@@ -1354,7 +1355,7 @@ afterLogIn : function(src) {
     sys.sendMessage(src, "");
     sys.sendMessage(src, "");
     sys.sendMessage(src, "");
-    sys.sendHtmlMessage(src, ""+sys.read("annc.txt")+"", channel);
+    sys.sendHtmlMessage(src, ""+sys.getFileContent("annc.txt")+"", channel);
     sys.sendMessage(src, "");
     sys.sendMessage(src, "");
     sys.sendMessage(src, "");  
@@ -1619,7 +1620,7 @@ beforeChatMessage: function(src, message, chan) {
     var poUser = SESSION.users(src);
     if (channel === 0 && sys.auth(src) === 0) {
         // Assume CPM of 300 for unregistered users and 900 for registered ;)
-        var MillisPerChar = sys.dbRegistered(sys.name(src)) ? 0 : 0; // ms
+        var MillisPerChar = sys.dbRegistered(sys.name(src)) ? 50 : 150; // ms
         var now = (new Date()).getTime();
         if (poUser.talk === undefined || poUser.talk + message.length * MillisPerChar < now) {
             poUser.talk = now;
