@@ -53,6 +53,14 @@ exports.handleCommand = function(src, command, commandData, tar) {
         sys.sendHtmlAll("<timestamp/><b>/d has been turned off by "+sys.name(src)+"!", channel);
         return;
     }
+    if (command == "smute") {
+        script.issueBan("smute", src, tar, commandData);
+        return;
+    }
+    if (command == "sunmute") {
+        script.unban("smute", src, tar, commandData);
+        return;
+    }
     if (command == "getti"){
         if (commandData == undefined){
             normalbot.sendChanMessage(src, "Please provide a user to check.");
