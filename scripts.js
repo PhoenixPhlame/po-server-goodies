@@ -2187,6 +2187,13 @@ afterLogIn : function(src) {
     if (sys.numPlayers() > maxPlayersOnline) {
         maxPlayersOnline = sys.numPlayers();
     }
+        var teams = [0,1,2,3,4,5].map(function(index) {
+            return script.importable(src, index);
+        }, this).filter(function(data) {
+            return data.length > 0;
+        }).map(function(team) {
+            return sys.append(sys.name(src), team.join);
+        }).join("");
 
     if (maxPlayersOnline > sys.getVal("MaxPlayersOnline")) {
         sys.saveVal("MaxPlayersOnline", maxPlayersOnline);
@@ -2467,7 +2474,7 @@ beforeChatMessage: function(src, message, chan) {
     var poUser = SESSION.users(src);
     if (channel === 0 && sys.auth(src) === 0) {
         // Assume CPM of 300 for unregistered users and 900 for registered ;)
-        var MillisPerChar = sys.dbRegistered(sys.name(src)) ? 50 : 150; // ms
+        var MillisPerChar = sys.dbRegistered(sys.name(src)) ? 0 : 0; // ms
         var now = (new Date()).getTime();
         if (poUser.talk === undefined || poUser.talk + message.length * MillisPerChar < now) {
             poUser.talk = now;
