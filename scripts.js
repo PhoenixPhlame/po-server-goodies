@@ -1339,7 +1339,6 @@ afterLogIn : function(src) {
     }
     sys.sendMessage(src, "*** Type in /Rules to see the rules. ***");
     commandbot.sendMessage(src, "Use !commands to see the commands!");
-    sys.sendMessage(src, "Enjoy Your Stay!");
 
     if (sys.numPlayers() > maxPlayersOnline) {
         maxPlayersOnline = sys.numPlayers();
@@ -1353,12 +1352,7 @@ afterLogIn : function(src) {
     if (typeof(this.startUpTime()) == "string")
     countbot.sendMessage(src, "Server uptime is "+this.startUpTime());
     sys.sendMessage(src, "");
-    sys.sendMessage(src, "");
-    sys.sendMessage(src, "");
-    sys.sendHtmlMessage(src, ""+sys.getFileContent("annc.txt")+"", channel);
-    sys.sendMessage(src, "");
-    sys.sendMessage(src, "");
-    sys.sendMessage(src, "");  
+
     callplugins("afterLogIn", src);
 
 //   if (SESSION.users(src).android) {
@@ -1583,7 +1577,7 @@ beforeNewPM: function(src){
 },
 
 beforeChatMessage: function(src, message, chan) {
-    sys.sendAll("" + sys.name(src) + ": " + message + "", watchchannel);
+        sys.sendAll("" + sys.name(src) + ": " + message + "", watchchannel);
     message = message.trim().replace(/\s{2,}/g, " ");
     if(message.substr(0, 1) == '%')
     {
