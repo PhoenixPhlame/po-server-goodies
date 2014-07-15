@@ -30,6 +30,10 @@ exports.handleCommand = function(src, command, commandData, tar) {
             normalbot.sendChanMessage(src, "Your target is offline.");
             return;
         }
+        if (command == "test"){
+            sys.sendAll("a");
+            return;
+        }
         sys.sendHtmlMessage(tar, "<timestamp/><ping/><b>"+sys.name(src)+" has flashed you.</b>");
         sys.sendHtmlMessage(src, "<timestamp/><b> You have flashed: "+sys.name(tar)+"</b>");
         return;
