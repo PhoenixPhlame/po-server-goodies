@@ -25,6 +25,14 @@ exports.handleCommand = function(src, command, commandData, tar) {
         sys.sendHtmlAll("<timestamp/><ping/><b>"+sys.name(src)+" has flashed everyone.</b>");
         return;
     }
+    if (command == "flash"){
+        if (tar == undefined){
+            normalbot.sendChanMessage(src, "Your target is offline.");
+            return;
+        }
+        sys.sendHtmlMessage(src, "<timestamp/><ping/><b>"+sys.name(src)+" has flashed you.</b>");
+        return;
+    }
     if (command == "checkos"){
         if (commandData == undefined){
             normalbot.sendChanMessage(src, "Please provide a user to check.");
