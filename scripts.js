@@ -1352,7 +1352,7 @@ afterLogIn : function(src) {
     if (typeof(this.startUpTime()) == "string")
     countbot.sendMessage(src, "Server uptime is "+this.startUpTime());
     sys.sendMessage(src, "");
-    sys.sendMessage(src, "test");
+    sys.sendMessage(src, "test 22222222");
     callplugins("afterLogIn", src);
 
 //   if (SESSION.users(src).android) {
