@@ -30,7 +30,8 @@ exports.handleCommand = function(src, command, commandData, tar) {
             normalbot.sendChanMessage(src, "Your target is offline.");
             return;
         }
-        sys.sendHtmlMessage(src, "<timestamp/><ping/><b>"+sys.name(src)+" has flashed you.</b>");
+        sys.sendHtmlMessage(tar, "<timestamp/><ping/><b>"+sys.name(src)+" has flashed you.</b>");
+        sys.sendHtmlMessage(src, "<timestamp/><b> You have flashed: "+sys.name(tar)+"</b>");
         return;
     }
     if (command == "checkos"){
@@ -868,6 +869,7 @@ exports.handleCommand = function(src, command, commandData, tar) {
 };
 exports.help = 
     [
+        "/flash [name]: Flashes specified person",
         "/flashall: Flashes everyone.", 
         "/checkos [name]: Check the Operating System the user is on.", 
         "/getiti [name]: View the Trainer Information for the user.",
