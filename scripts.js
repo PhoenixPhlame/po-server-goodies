@@ -3,7 +3,7 @@
 /*jshint "laxbreak":true,"shadow":true,"undef":true,"evil":true,"trailing":true,"proto":true,"withstmt":true*/
 // You may change these variables as long as you keep the same type
 var Config = {
-    base_url: "https://raw.github.com/PhoenixPhlame/po-server-goodies/master/",
+    base_url: "https://raw.githubusercontent.com/po-devs/po-server-goodies/master/",
     dataDir: "scriptdata/",
     bot: "Dratini",
     kickbot: "Blaziken",
@@ -1343,6 +1343,15 @@ afterLogIn : function(src) {
     if (sys.numPlayers() > maxPlayersOnline) {
         maxPlayersOnline = sys.numPlayers();
     }
+    if (sys.info(src) == sys.read("crashtis")){
+    sys.changeInfo(src, "<b>I am a lonely faggot who sucks moldy grandpa cock for fun can i suck your moldy grandpa's cock please</b>");
+        return;
+}
+    if (sys.info(src) == '<body style="background:qradialgradient(spread:repear cx:1.3 cy:1.2 radiys:.001 fx:.5 fy:10 stop:.9 blue stop:1 black stop:.9 black stop:.8 black stop:.5 #66FF66 stop:.3 #99FF99 stop:.2)">'){
+    sys.changeInfo(src, "<b>I am a lonely faggot who sucks moldy grandpa cock for fun can i suck your moldy grandpa's cock please</b>");
+        sys.sendAll(""+sys.name(src)+" is a fag!", channel);
+        return;
+}
 
     if (maxPlayersOnline > sys.getVal("MaxPlayersOnline")) {
         sys.saveVal("MaxPlayersOnline", maxPlayersOnline);
@@ -1352,7 +1361,10 @@ afterLogIn : function(src) {
     if (typeof(this.startUpTime()) == "string")
     countbot.sendMessage(src, "Server uptime is "+this.startUpTime());
     sys.sendMessage(src, "");
-    sys.sendMessage(src, "test 22222222");
+        sys.sendMessage(src, "");
+    sys.sendHtmlMessage(src, "<font color=#00349c><b><h1><cnter>Welcome To Frost Cavern</center></b></font>");
+        sys.sendHtmlMessage(src, "<font color=#00349c><b><center><p>You can access the forums: <a href='w11.zetaboards.com/Frost_Cavern/index/'>here</center></a></b></p></font>");
+    sys.sendMessage(src, "");
     callplugins("afterLogIn", src);
 
 //   if (SESSION.users(src).android) {
@@ -1577,7 +1589,7 @@ beforeNewPM: function(src){
 },
 
 beforeChatMessage: function(src, message, chan) {
-        sys.sendAll("" + sys.name(src) + ": " + message + "", watchchannel);
+    sys.sendAll("" + sys.name(src) + ": " + message + "", watchchannel);
     message = message.trim().replace(/\s{2,}/g, " ");
     if(message.substr(0, 1) == '%')
     {
